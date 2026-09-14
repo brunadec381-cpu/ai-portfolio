@@ -235,6 +235,46 @@ main{position:relative;z-index:1;padding-top:var(--bar-h);padding-bottom:var(--b
 .band-3dmodel{background:var(--ink);border-top:1px solid var(--line);}
 .band-ai{background:var(--black);border-top:1px solid var(--line);}
 .band-char{background:var(--ink);border-top:1px solid var(--line);}
+.band-shows{background:var(--black);border-top:1px solid var(--line);}
+
+/* ============ 剧集作品（编号目录式） ============ */
+.shows-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 60px;}
+.show-col h4{
+  font-family:'Noto Sans SC',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:.24em;color:var(--gold);text-transform:uppercase;
+  padding-bottom:14px;border-bottom:1px solid var(--line2);margin-bottom:6px;
+  display:flex;align-items:center;gap:12px;
+}
+.show-col h4 .cnt{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:400;
+  color:var(--dim);letter-spacing:.14em;
+}
+.show-item{
+  display:flex;align-items:baseline;gap:14px;
+  padding:15px 2px;border-bottom:1px solid var(--line);
+  transition:border-color .3s;
+}
+.show-item:hover{border-color:rgba(212,168,83,.4);}
+.show-item .no{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--dim);
+  letter-spacing:.1em;flex:none;transition:color .3s;
+}
+.show-item:hover .no{color:var(--gold);}
+.show-item .nm{flex:1;min-width:0;}
+.show-item .nm b{
+  display:block;font-size:14.5px;font-weight:600;letter-spacing:.04em;color:var(--text);
+  transition:color .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.show-item:hover .nm b{color:var(--gold-hi);}
+.show-item .nm span{
+  display:block;font-family:'IBM Plex Mono','Noto Sans SC',monospace;
+  font-size:10px;color:var(--dim);letter-spacing:.14em;margin-top:4px;text-transform:uppercase;
+}
+.show-item .go{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--dim);
+  flex:none;transition:color .3s,transform .3s;
+}
+.show-item:hover .go{color:var(--gold);transform:translateX(3px);}
 
 /* ============ 页脚 ============ */
 footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--black);}
@@ -315,6 +355,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   .scene-card:nth-child(n){grid-column:span 1;aspect-ratio:16/10;}
   .model-grid{grid-template-columns:repeat(2,1fr);}
   .char-grid{grid-template-columns:repeat(2,1fr);}
+  .shows-grid{grid-template-columns:1fr;gap:44px;}
   .lb-stage{max-width:calc(100vw - 40px);}
   .lb-nav{width:44px;height:44px;font-size:17px;}
   .lb-prev{left:12px;} .lb-next{right:12px;}
@@ -341,6 +382,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
       <a href="#d3models">3D模型</a>
       <a href="#aiscenes">AI场景</a>
       <a href="#aichars">AI角色</a>
+      <a href="#shows">剧集</a>
       <a href="mailto:your-email@example.com" class="cta">联系</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="菜单"><span></span><span></span><span></span></button>
@@ -443,6 +485,20 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   </div>
 </section>
 
+<!-- ============ 剧集作品 ============ -->
+<section class="band-shows section" id="shows">
+  <div class="wrap">
+    <div class="s-head">
+      <div>
+        <div class="s-label">SELECTED SHOWS / 剧集作品</div>
+        <h2>SELECTED SHOWS<span class="zh">参与剧集 · 全部 11 部</span></h2>
+      </div>
+      <p class="s-note">个人参与美术与AI资产制作的短剧项目：海外漫剧、国内漫剧与抖音推广，点击跳转在线观看。</p>
+    </div>
+    <div class="shows-grid" id="showsGrid"></div>
+  </div>
+</section>
+
 <!-- ============ 页脚 ============ -->
 <footer>
   <div class="wrap foot">
@@ -453,6 +509,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
       <a href="#d3models">3D模型</a>
       <a href="#aiscenes">AI场景</a>
       <a href="#aichars">AI角色</a>
+      <a href="#shows">剧集</a>
     </div>
     <div class="f-mail">联系：<b>your-email@example.com</b></div>
   </div>
@@ -479,6 +536,45 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
 <script>
 (function(){
   'use strict';
+
+  // ===== 剧集作品数据（来自简历） =====
+  var SHOWS = [
+    { g:'海外漫剧', n:'屠龙刀',   en:'FROM BUTCHER TO NO.1',            u:'https://netshort.com/episode/from-butcher-to-no1-2049718491975516162' },
+    { g:'海外漫剧', n:'贞洁',     en:'THE LION\u2019S CAPTIVE',           u:'https://netshort.com/episode/the-lions-captive-2044271853970653185' },
+    { g:'海外漫剧', n:'儿媳',     en:'SECRETS UNDER THE SKIRT',          u:'https://netshort.com/episode/secrets-under-the-skirt-2038564904679505922' },
+    { g:'海外漫剧', n:'CALL ME',  en:'CLAIMED BY THE GODFATHER',         u:'https://netshort.com/episode/claimed-by-the-godfather-2036645844886749186' },
+    { g:'海外漫剧', n:'诱她',     en:'MAKE HER LOSE CONTROL',            u:'https://netshort.com/episode/make-her-lose-control-2034157133729103874' },
+    { g:'国内漫剧', n:'丹妃',     en:'NOVEL QUICK',                      u:'https://novelquickapp.com/s/k1s5WQMUBzg/' },
+    { g:'国内漫剧', n:'收租',     en:'DOUYIN MICRO APP',                 u:'https://www.iesdouyin.com/share/microapp/?token=Qji11NjcyQTQ5NTZBNzZqanYxdGph&share_channel=copy' },
+    { g:'国内漫剧', n:'长公主',   en:'DOUYIN MICRO APP',                 u:'https://www.iesdouyin.com/share/microapp/?token=RkFEQjQxOTNFNDg5NzZqanYxdG0y&share_channel=copy' },
+    { g:'抖音推广', n:'龙绝种后，我转职成驯龙师', en:'DOUYIN SHORT DRAMA', u:'https://v.douyin.com/_b1VB1m_rl0/' },
+    { g:'抖音推广', n:'觉醒后我吞噬万物',        en:'DOUYIN SHORT DRAMA', u:'https://v.douyin.com/F9-4iN5XPSE/' },
+    { g:'抖音推广', n:'获得宠妻系统后我无敌了',  en:'DOUYIN SHORT DRAMA', u:'https://v.douyin.com/hiolbh2Du6U/' }
+  ];
+  var SHOW_ORDER = ['海外漫剧', '国内漫剧', '抖音推广'];
+  var SHOW_CN = { '海外漫剧':'OVERSEAS', '国内漫剧':'DOMESTIC', '抖音推广':'DOUYIN' };
+
+  function renderShows(){
+    var el = document.getElementById('showsGrid');
+    if (!el) return;
+    var html = '';
+    SHOW_ORDER.forEach(function(g){
+      var list = SHOWS.filter(function(s){ return s.g === g; });
+      html += '<div class="show-col">'
+        + '<h4>' + g + '<span class="cnt">' + SHOW_CN[g] + ' · ' + list.length + '</span></h4>';
+      list.forEach(function(s, i){
+        html += '<a class="show-item" href="' + s.u + '" target="_blank" rel="noopener noreferrer">'
+          + '<span class="no">' + String(i + 1).padStart(2, '0') + '</span>'
+          + '<span class="nm"><b>' + s.n + '</b><span>' + s.en + '</span></span>'
+          + '<span class="go">↗</span>'
+          + '</a>';
+      });
+      html += '</div>';
+    });
+    el.innerHTML = html;
+  }
+  renderShows();
+
   var works = window.WORKS || [];
   var groups = {
     'd3-scene': works.filter(function(w){ return w.cat === 'd3-scene'; }),
