@@ -80,54 +80,6 @@ window.WORKS = [
 "sub": "d3-scene"
 },
 {
-"title": "图片212",
-"file": "图片212.png",
-"fileEnc": "%E5%9B%BE%E7%89%87212.jpg",
-"cat": "d3-model",
-"catLabel": "3D模型",
-"sub": "d3-model"
-},
-{
-"title": "图片234",
-"file": "图片234.png",
-"fileEnc": "%E5%9B%BE%E7%89%87234.jpg",
-"cat": "d3-model",
-"catLabel": "3D模型",
-"sub": "d3-model"
-},
-{
-"title": "图片32344",
-"file": "图片32344.png",
-"fileEnc": "%E5%9B%BE%E7%89%8732344.jpg",
-"cat": "d3-model",
-"catLabel": "3D模型",
-"sub": "d3-model"
-},
-{
-"title": "图片324",
-"file": "图片324.png",
-"fileEnc": "%E5%9B%BE%E7%89%87324.jpg",
-"cat": "d3-model",
-"catLabel": "3D模型",
-"sub": "d3-model"
-},
-{
-"title": "图片3242",
-"file": "图片3242.png",
-"fileEnc": "%E5%9B%BE%E7%89%873242.jpg",
-"cat": "d3-model",
-"catLabel": "3D模型",
-"sub": "d3-model"
-},
-{
-"title": "图片324234",
-"file": "图片324234.png",
-"fileEnc": "%E5%9B%BE%E7%89%87324234.jpg",
-"cat": "d3-model",
-"catLabel": "3D模型",
-"sub": "d3-model"
-},
-{
 "title": "005",
 "file": "005.jpg",
 "fileEnc": "005.jpg",

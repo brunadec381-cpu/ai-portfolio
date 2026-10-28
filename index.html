@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI FILM ASSETS · 影视资产作品集</title>
-<meta name="description" content="AI影视资产作品集：3D场景、3D模型、AI场景与AI角色设定。奇幻史诗与现代写实，电影级视觉资产。">
+<meta name="description" content="AI影视资产作品集：3D场景、AI场景与AI角色设定。奇幻史诗与现代写实，电影级视觉资产。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -183,13 +183,6 @@ main{position:relative;z-index:1;padding-top:var(--bar-h);padding-bottom:var(--b
 }
 .scene-card:nth-child(6n+1),
 .scene-card:nth-child(6n+2){grid-column:span 3;aspect-ratio:16/9;}
-.model-grid{grid-template-columns:repeat(4,1fr);}
-.model-card{
-  position:relative;aspect-ratio:1/1;
-  border-radius:2px;overflow:hidden;cursor:pointer;
-  background:#161616;border:1px solid var(--line);
-  transition:border-color .35s;
-}
 .char-grid{grid-template-columns:repeat(4,1fr);gap:14px;}
 .char-card{
   position:relative;border-radius:2px;overflow:hidden;cursor:pointer;
@@ -202,15 +195,12 @@ main{position:relative;z-index:1;padding-top:var(--bar-h);padding-bottom:var(--b
   transition:transform .8s cubic-bezier(.16,1,.3,1),filter .5s;
 }
 .wall .tile:hover img{transform:scale(1.05);filter:brightness(1.05) saturate(1.05);}
-.model-card img{object-fit:contain;padding:18px;background:linear-gradient(160deg,#1a1a1a,#111);filter:none;}
-.model-card:hover img{transform:scale(1.03);filter:brightness(1.06);}
 .wall .veil{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 100% at 50% 40%,rgba(10,10,10,0) 55%,rgba(10,10,10,.5) 100%);
   opacity:.6;transition:opacity .4s;
 }
 .wall .tile:hover .veil{opacity:.25;}
-.model-card .veil{background:radial-gradient(120% 100% at 50% 30%,rgba(10,10,10,0) 50%,rgba(10,10,10,.42) 100%);opacity:.4;}
 .wall .cap{
   position:absolute;left:0;right:0;bottom:0;z-index:3;
   padding:50px 18px 15px;
@@ -232,7 +222,6 @@ main{position:relative;z-index:1;padding-top:var(--bar-h);padding-bottom:var(--b
 
 /* 分类节底色 */
 .band-3d{background:var(--black);}
-.band-3dmodel{background:var(--ink);border-top:1px solid var(--line);}
 .band-ai{background:var(--black);border-top:1px solid var(--line);}
 .band-char{background:var(--ink);border-top:1px solid var(--line);}
 .band-shows{background:var(--black);border-top:1px solid var(--line);}
@@ -331,7 +320,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   .scene-grid{grid-template-columns:repeat(4,1fr);}
   .scene-card:nth-child(n){grid-column:span 2;aspect-ratio:16/10;}
   .scene-card:nth-child(4n+1),.scene-card:nth-child(4n+2){grid-column:span 2;aspect-ratio:16/9;}
-  .model-grid{grid-template-columns:repeat(3,1fr);}
   .char-grid{grid-template-columns:repeat(3,1fr);}
 }
 @media(max-width:900px){
@@ -353,7 +341,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   .s-head{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:50px;}
   .scene-grid{grid-template-columns:1fr;}
   .scene-card:nth-child(n){grid-column:span 1;aspect-ratio:16/10;}
-  .model-grid{grid-template-columns:repeat(2,1fr);}
   .char-grid{grid-template-columns:repeat(2,1fr);}
   .shows-grid{grid-template-columns:1fr;gap:44px;}
   .lb-stage{max-width:calc(100vw - 40px);}
@@ -362,7 +349,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   .lb-close{top:16px;right:16px;}
 }
 @media(max-width:560px){
-  .model-grid{grid-template-columns:1fr;}
   .char-grid{grid-template-columns:1fr;}
   .hero-meta{gap:22px;}
   .style-keys{grid-template-columns:1fr;}
@@ -379,7 +365,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
     <nav class="nav-links" id="navLinks">
       <a href="#style">风格</a>
       <a href="#d3scenes">3D场景</a>
-      <a href="#d3models">3D模型</a>
       <a href="#shows">剧集</a>
       <a href="#aiscenes">AI场景</a>
       <a href="#aichars">AI角色</a>
@@ -391,7 +376,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
 
 <!-- ============ 宽银幕底部遮幅 ============ -->
 <div class="screen bottom">
-  <div class="mono"><span><b>●</b>&nbsp; 270 WORKS</span><span>AI FILM ASSETS <span class="gold">·</span> 2026</span></div>
+  <div class="mono"><span><b>●</b>&nbsp; 264 WORKS</span><span>AI FILM ASSETS <span class="gold">·</span> 2026</span></div>
 </div>
 
 <main>
@@ -404,7 +389,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
     <h1>AI FILM<br>ASSETS<span class="zh">影视美术资产作品集</span></h1>
     <div class="hero-meta">
       <div class="hm"><span class="k">Type</span><span class="v">3D <span class="gold">/</span> AI 场景 <span class="gold">/</span> 角色</span></div>
-      <div class="hm"><span class="k">Asset</span><span class="v"><span class="gold">270</span> 件精选</span></div>
+      <div class="hm"><span class="k">Asset</span><span class="v"><span class="gold">264</span> 件精选</span></div>
       <div class="hm"><span class="k">Genre</span><span class="v">奇幻史诗 <span class="gold">·</span> 现代写实 <span class="gold">·</span> 古风</span></div>
       <div class="hm"><span class="k">Pipeline</span><span class="v">AI <span class="gold">+</span> UE5 <span class="gold">+</span> Blender</span></div>
     </div>
@@ -416,12 +401,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   <div class="wrap style-grid">
     <div class="style-copy reveal">
       <h3>以<b>电影语言</b>构建<br>3D与AI双轨美术资产</h3>
-      <p>作品集分为<strong>3D资产</strong>与<strong>AI资产</strong>两条管线：3D场景覆盖古风仙侠环境与写实空间，3D模型提供工业道具、家具与武器的单体渲染；AI场景收录欧式庄园宴会厅、希腊神话殿堂、现代病房与警局等成套空间。</p>
+      <p>作品集分为<strong>3D资产</strong>与<strong>AI资产</strong>两条管线：3D场景覆盖古风仙侠环境与写实空间；AI场景收录欧式庄园宴会厅、希腊神话殿堂、现代病房与警局等成套空间。</p>
       <p>AI角色设定覆盖<strong>古希腊神话、古典宫廷与当代都市</strong>，以三视图与多角度造型交付；全部资产按<strong>分层、高清、可复用</strong>标准输出。</p>
       <div class="style-keys">
         <div class="sk"><span class="k">Pipeline</span><span class="v">3D建模、AI生图、UE5</span></div>
         <div class="sk"><span class="k">Genre</span><span class="v">古风仙侠 / 奇幻 / 现代</span></div>
-        <div class="sk"><span class="k">Assets</span><span class="v">场景、模型、角色</span></div>
+        <div class="sk"><span class="k">Assets</span><span class="v">场景、角色</span></div>
         <div class="sk"><span class="k">Delivery</span><span class="v">高清、分层、成套</span></div>
       </div>
     </div>
@@ -440,20 +425,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
       <p class="s-note">古风仙侠与写实空间的3D环境渲染，可直接用于虚拟制片背景与场景参考。</p>
     </div>
     <div class="wall scene-grid" id="d3sceneGrid"></div>
-  </div>
-</section>
-
-<!-- ============ 3D模型 ============ -->
-<section class="band-3dmodel section" id="d3models">
-  <div class="wrap">
-    <div class="s-head">
-      <div>
-        <div class="s-label">3D MODELS / 3D模型</div>
-        <h2>3D MODELS<span class="zh">3D模型 · 全部 6 件</span></h2>
-      </div>
-      <p class="s-note">工业道具、家具与武器单体模型渲染，纯背景展示，供资产库与道具参考。</p>
-    </div>
-    <div class="wall model-grid" id="d3modelGrid"></div>
   </div>
 </section>
 
@@ -506,7 +477,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
     <div class="f-links">
       <a href="#style">风格</a>
       <a href="#d3scenes">3D场景</a>
-      <a href="#d3models">3D模型</a>
       <a href="#shows">剧集</a>
       <a href="#aiscenes">AI场景</a>
       <a href="#aichars">AI角色</a>
@@ -578,19 +548,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
   var works = window.WORKS || [];
   var groups = {
     'd3-scene': works.filter(function(w){ return w.cat === 'd3-scene'; }),
-    'd3-model': works.filter(function(w){ return w.cat === 'd3-model'; }),
     'ai-scene': works.filter(function(w){ return w.cat === 'ai-scene'; }),
     'ai-char':  works.filter(function(w){ return w.cat === 'ai-char'; })
   };
   var LABEL = {
     'd3-scene': '3D Scene / 3D场景',
-    'd3-model': '3D Model / 3D模型',
     'ai-scene': 'AI Scene / AI场景',
     'ai-char':  'AI Character / AI角色'
   };
   var TAG = {
     'd3-scene': '3DSC',
-    'd3-model': '3DMD',
     'ai-scene': 'AISC',
     'ai-char':  'AICH'
   };
@@ -609,7 +576,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
     }
     var a = pick('ai-scene'), b = pick('d3-scene'), c = pick('ai-scene');
     if (b === a || b === c || a === c){
-      var pool2 = groups['d3-model'].concat(groups['ai-scene']);
+      var pool2 = groups['ai-scene'];
       c = pool2[Math.floor(Math.random() * pool2.length)];
     }
     var el = document.getElementById('styleVisual');
@@ -635,7 +602,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bla
 
   var grids = {
     'd3-scene': document.getElementById('d3sceneGrid'),
-    'd3-model': document.getElementById('d3modelGrid'),
     'ai-scene': document.getElementById('aisceneGrid'),
     'ai-char':  document.getElementById('aicharGrid')
   };
